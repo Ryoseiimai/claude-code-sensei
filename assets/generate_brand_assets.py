@@ -105,11 +105,11 @@ def make_square_logo(out: Path, size: int = 1080):
 
     # サブテキスト
     sub_font = _load_font(FONT_BOLD_CANDIDATES, size // 18)
-    _draw_centered_text(draw, "Claude Code先生", sub_font, size // 2, size // 2 + size // 4, fill=TEXT)
+    _draw_centered_text(draw, "Claude Code 社長 兼 先生", sub_font, size // 2, size // 2 + size // 4, fill=TEXT)
 
     # 装飾: 下部にAIタグ
     accent_font = _load_font(FONT_MONO_CANDIDATES, size // 28)
-    _draw_centered_text(draw, "AI × ターミナル", accent_font,
+    _draw_centered_text(draw, "経営しながら教える", accent_font,
                        size // 2, size // 2 + size // 3, fill=TEXT_FAINT)
 
     img.save(out, "PNG", optimize=True)
@@ -124,12 +124,12 @@ def make_facebook_cover(out: Path, w: int = 1640, h: int = 624):
 
     # 左寄せロゴ + テキスト
     logo_font = _load_font(FONT_BOLD_CANDIDATES, h // 3)
-    title_text = "🎓 Claude Code先生"
+    title_text = "💼 Claude Code 社長 兼 先生"
     bbox = draw.textbbox((0, 0), title_text, font=logo_font)
     draw.text((80, h // 4), title_text, fill=ACCENT, font=logo_font)
 
     sub_font = _load_font(FONT_BOLD_CANDIDATES, h // 12)
-    sub_text = "初心者でも今日から動かせる、AI×ターミナルの教科書"
+    sub_text = "経営しながら教える、Claude Codeで何でも作る人"
     draw.text((80, h // 4 + (bbox[3] - bbox[1]) + 30), sub_text, fill=TEXT, font=sub_font)
 
     url_font = _load_font(FONT_MONO_CANDIDATES, h // 18)
@@ -146,11 +146,11 @@ def make_x_banner(out: Path, w: int = 1500, h: int = 500):
     draw = ImageDraw.Draw(img)
 
     title_font = _load_font(FONT_BOLD_CANDIDATES, h // 4)
-    draw.text((60, h // 6), "🎓 Claude Code先生", fill=ACCENT, font=title_font)
+    draw.text((60, h // 6), "💼 Claude Code 社長 兼 先生", fill=ACCENT, font=title_font)
 
     sub_font = _load_font(FONT_BOLD_CANDIDATES, h // 12)
-    draw.text((60, h // 6 + h // 4 + 20), "Claude Code、難しそうで触ってない人へ。", fill=TEXT, font=sub_font)
-    draw.text((60, h // 6 + h // 4 + 70), "3分で動かせるようにする。", fill=TEXT_DIM, font=sub_font)
+    draw.text((60, h // 6 + h // 4 + 20), "Claude Codeで会社経営する過程を全公開。", fill=TEXT, font=sub_font)
+    draw.text((60, h // 6 + h // 4 + 70), "Build in Public で経営しながら教える。", fill=TEXT_DIM, font=sub_font)
 
     schedule_font = _load_font(FONT_MONO_CANDIDATES, h // 18)
     draw.text((60, h - 60),
@@ -169,15 +169,15 @@ def make_story_image(out: Path, w: int = 1080, h: int = 1920):
 
     # 上部に絵文字
     em_font = _load_font(FONT_BOLD_CANDIDATES, w // 4)
-    _draw_centered_text(draw, "🎓", em_font, w // 2, h // 4, fill=ACCENT)
+    _draw_centered_text(draw, "💼", em_font, w // 2, h // 4, fill=ACCENT)
 
     # 中央タイトル
     title_font = _load_font(FONT_BOLD_CANDIDATES, w // 12)
-    _draw_centered_text(draw, "Claude Code先生", title_font, w // 2, h // 2 - 80, fill=ACCENT)
+    _draw_centered_text(draw, "Claude Code 社長 兼 先生", title_font, w // 2, h // 2 - 80, fill=ACCENT)
 
     # サブ
     sub_font = _load_font(FONT_BOLD_CANDIDATES, w // 24)
-    _draw_centered_text(draw, "初心者でも今日から動かせる", sub_font,
+    _draw_centered_text(draw, "経営しながら教える", sub_font,
                        w // 2, h // 2 + 20, fill=TEXT)
 
     # 下部CTA
@@ -196,10 +196,10 @@ def make_note_header(out: Path, w: int = 1280, h: int = 680):
     draw = ImageDraw.Draw(img)
 
     title_font = _load_font(FONT_BOLD_CANDIDATES, h // 4)
-    _draw_centered_text(draw, "🎓 Claude Code先生", title_font, w // 2, h // 2 - 60, fill=ACCENT)
+    _draw_centered_text(draw, "💼 Claude Code 社長 兼 先生", title_font, w // 2, h // 2 - 60, fill=ACCENT)
 
     sub_font = _load_font(FONT_BOLD_CANDIDATES, h // 14)
-    _draw_centered_text(draw, "初心者でも今日から動かせる、AI×ターミナルの教科書",
+    _draw_centered_text(draw, "Claude Codeで会社経営する過程を全公開",
                        sub_font, w // 2, h // 2 + 80, fill=TEXT)
 
     img.save(out, "PNG", optimize=True)
@@ -213,10 +213,10 @@ def make_og_image(out: Path, w: int = 1200, h: int = 630):
     draw = ImageDraw.Draw(img)
 
     title_font = _load_font(FONT_BOLD_CANDIDATES, h // 5)
-    _draw_centered_text(draw, "🎓 Claude Code先生", title_font, w // 2, h // 2 - 40, fill=ACCENT)
+    _draw_centered_text(draw, "💼 Claude Code 社長 兼 先生", title_font, w // 2, h // 2 - 40, fill=ACCENT)
 
     sub_font = _load_font(FONT_BOLD_CANDIDATES, h // 16)
-    _draw_centered_text(draw, "Claude Code、3分で動かせるようにする教育ブランド",
+    _draw_centered_text(draw, "Claude Codeで会社経営する過程を全公開、Build in Public",
                        sub_font, w // 2, h // 2 + 80, fill=TEXT)
 
     img.save(out, "PNG", optimize=True)

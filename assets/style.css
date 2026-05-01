@@ -1,0 +1,243 @@
+/* Claude Code先生 公式サイト 共通スタイル */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-base: #1a1b26;
+  --bg-card: #24283b;
+  --bg-elevated: #2a2e42;
+  --border: #2f334d;
+  --accent: #7aa2f7;
+  --accent-2: #bb9af7;
+  --accent-3: #9ece6a;
+  --text: #c0caf5;
+  --text-dim: #a9b1d6;
+  --text-faint: #565f89;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+  background: var(--bg-base);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+.site-header {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.site-logo {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+}
+.site-nav {
+  display: flex;
+  gap: 24px;
+  font-size: 0.95em;
+}
+.site-nav a {
+  color: var(--text-dim);
+  text-decoration: none;
+}
+.site-nav a:hover { color: var(--accent); }
+
+/* Hero */
+.hero {
+  padding: 80px 0 60px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 2.6em;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.hero .lead {
+  font-size: 1.2em;
+  color: var(--text-dim);
+  margin-bottom: 32px;
+}
+.hero .cta-row {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s, opacity 0.15s;
+}
+.btn:hover { transform: translateY(-2px); opacity: 0.92; }
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg-base);
+}
+.btn-secondary {
+  background: var(--bg-elevated);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* Section */
+section {
+  padding: 60px 0;
+  border-top: 1px solid var(--border);
+}
+section h2 {
+  font-size: 1.8em;
+  margin-bottom: 32px;
+  color: var(--accent);
+  text-align: center;
+}
+section h2::before {
+  content: "## ";
+  color: var(--text-faint);
+}
+
+/* Cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+.card h3 {
+  color: var(--accent-2);
+  font-size: 1.1em;
+  margin-bottom: 12px;
+}
+.card p {
+  color: var(--text-dim);
+  font-size: 0.95em;
+}
+
+/* Schedule List */
+.schedule {
+  display: grid;
+  gap: 12px;
+  max-width: 540px;
+  margin: 0 auto;
+}
+.schedule-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  border-left: 3px solid var(--accent);
+}
+.schedule-row .time {
+  color: var(--accent);
+  font-weight: 700;
+  font-family: "SF Mono", Menlo, monospace;
+}
+.schedule-row .label {
+  color: var(--text);
+}
+
+/* Code block */
+pre, code {
+  font-family: "SF Mono", Menlo, monospace;
+  background: var(--bg-elevated);
+  border-radius: 6px;
+}
+code { padding: 2px 6px; font-size: 0.9em; }
+pre {
+  padding: 18px 20px;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+/* Social row */
+.social-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.social-row a {
+  padding: 12px 18px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  font-size: 0.9em;
+}
+.social-row a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.social-row .pending {
+  color: var(--text-faint);
+  font-size: 0.85em;
+}
+
+/* Footer */
+.site-footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--text-faint);
+  font-size: 0.9em;
+}
+.site-footer a { color: var(--text-dim); margin: 0 10px; }
+
+/* Privacy / Article styles */
+article h1 {
+  color: var(--accent);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+}
+article h2 {
+  color: var(--accent-2);
+  margin: 32px 0 16px;
+  border-left: 3px solid var(--accent);
+  padding-left: 12px;
+}
+article p, article ul { margin-bottom: 16px; color: var(--text-dim); }
+article ul { padding-left: 24px; }
+article a { color: var(--accent); }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 2em; }
+  .hero .lead { font-size: 1.05em; }
+  section { padding: 40px 0; }
+  .site-nav { gap: 14px; font-size: 0.85em; }
+}

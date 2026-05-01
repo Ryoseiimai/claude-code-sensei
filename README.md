@@ -19,7 +19,7 @@ Claude Code（AnthropicのAIコーディングエージェント）を初心者�
 
 ## 配信先
 
-- 𝕏 (X): [@ryoseiworld](https://x.com/ryoseiworld) — 朝08:00 / 昼12:15 / 夜20:30 自動投稿
+- 𝕏 (X): [@cc_sensei_jp](https://x.com/cc_sensei_jp) — 朝08:00 / 昼12:15 / 夜20:30 自動投稿
 - 📓 note: [@ryoseiworld](https://note.com/ryoseiworld) — 月曜朝 自動生成・公開
 - 📷 Instagram: 準備中（Meta API 取得後 / 2026年5月以降）
 - 📘 Facebook: 準備中（Meta API 取得後 / 2026年5月以降）

@@ -93,44 +93,62 @@
       "summary": "CEO決定書 #001、部署横断ワークフロー、PMチケットCC-001-025、~/.claude/agents/ に8人のロール定義、Excel組織管理ブック。",
       "x_post": "Claude Codeのサブエージェント、本当に「チーム」として動かせる。\n\n今日、Claude Code先生株式会社（仮想）として:\n・cc-sensei-secretary（秘書）\n・marketing-lead\n・engineer\n・creative\n・content-writer\n・researcher\n・pm\n・sales\n\n8人配備、~/.claude/agents/ で定義。\n\n#ClaudeCode #サブエージェント",
       "artifact": "/Users/ryose/.company/ceo/decisions/2026-05-01-claude-code-sensei-org.md"
+    },
+    {
+      "step": 11,
+      "ts": "2026-05-01T13:30:00+09:00",
+      "phase": "ブランドピボット",
+      "title": "「Claude Code先生」→「Claude Code 社長 兼 先生」へ昇格",
+      "summary": "11部署/8人チーム/月3000万目標/3事業の組織体には「先生」だけだと座りが悪く、「社長 兼 先生」にリブランド。「経営しながら教える」独自ポジで競合不在。ロゴ・公式サイト・全プロフィール文書・ダッシュボード・PERSONA、6ファイル300+行を一気に更新。",
+      "x_post": "今日、自分の肩書を昇格した。\n\n旧: 🎓 Claude Code先生\n新: 💼 Claude Code 社長 兼 先生\n\n11部署・8人チーム・月3000万目標・3事業を回してたら、もう「先生」だけじゃ説明できなかった。\n\n「経営しながら教える」、これが僕の独自ポジ。\n\nロゴから全プロフィールまでClaude Codeで一気に書き換え、30分で完了。\n\n#BuildInPublic #ClaudeCode",
+      "artifact": "https://ryoseiimai.github.io/claude-code-sensei/"
+    },
+    {
+      "step": 12,
+      "ts": "2026-05-01T14:00:00+09:00",
+      "phase": "営業準備",
+      "title": "法人研修提案書テンプレと営業パイプライン管理を整備",
+      "summary": "法人Claude Code研修（半日30万/1日50万/月次30万）の提案書テンプレ、個別コンサル提案書テンプレ、CRM風パイプライン管理ファイルを作成。問い合わせから契約まで全部ファイルで追える状態に。",
+      "x_post": "Claude Code 法人研修、価格決めた。\n\n半日（4時間）: 30万円\n1日（8時間）: 50万円\n継続支援（月2回 + Slack質問対応）: 30万/月\n\n提案書テンプレもCRMパイプラインも全部Claude Codeで30分で作った。\n\n受注したら全社員が `/init` を打てる状態にする。\n\n#ClaudeCode #法人研修 #BuildInPublic",
+      "artifact": "/Users/ryose/.company/sales/proposals/"
     }
   ],
   "next_steps": [
     {
-      "step": 11,
+      "step": 13,
       "phase": "ユーザー手動",
       "title": "X リネーム + permissions修正",
       "blocker": "developer.x.com で App permissions を Read and write に変更、Access Token regenerate"
     },
     {
-      "step": 12,
+      "step": 14,
       "phase": "ユーザー手動",
       "title": "Instagram新規アカウント作成（@claude_code_jp）",
       "blocker": "スマホアプリで新規登録"
     },
     {
-      "step": 13,
+      "step": 15,
       "phase": "ユーザー手動",
       "title": "Facebookページ作成（Claude Code先生）",
       "blocker": "https://www.facebook.com/pages/create/"
     },
     {
-      "step": 14,
+      "step": 16,
       "phase": "Claude Code代行",
       "title": "X permissions修正後、ライブ実況スレッド一気投稿",
       "blocker": null
     },
     {
-      "step": 15,
+      "step": 17,
       "phase": "Meta API取得後",
       "title": "IG/FBへ自動クロスポスト開始",
       "blocker": "App Review通過待ち（5-21日）"
     }
   ],
   "summary": {
-    "files_created": 35,
+    "files_created": 42,
     "files_modified": 8,
-    "git_commits": 3,
+    "git_commits": 6,
     "github_repo": "https://github.com/Ryoseiimai/claude-code-sensei",
     "live_url": "https://ryoseiimai.github.io/claude-code-sensei/",
     "subagents_created": 8,

@@ -30,16 +30,22 @@ TEXT = (192, 202, 245)    # #c0caf5
 TEXT_DIM = (169, 177, 214) # #a9b1d6
 TEXT_FAINT = (86, 95, 137) # #565f89
 
+# 日本語対応フォントを優先（ヒラギノ等は日本語＋ASCII両対応）
 FONT_BOLD_CANDIDATES = [
-    "/System/Library/Fonts/SFCompactDisplay.ttf",
-    "/System/Library/Fonts/Helvetica.ttc",
+    "/System/Library/Fonts/ヒラギノ角ゴシック W7.ttc",
+    "/System/Library/Fonts/ヒラギノ角ゴシック W6.ttc",
+    "/System/Library/Fonts/ヒラギノ角ゴシック W5.ttc",
     "/Library/Fonts/Arial Unicode.ttf",
-    "/System/Library/Fonts/HelveticaNeue.ttc",
+    "/System/Library/Fonts/Hiragino Sans GB.ttc",
+    "/System/Library/Fonts/STHeiti Medium.ttc",
+    "/System/Library/Fonts/PingFang.ttc",
+    "/System/Library/Fonts/Helvetica.ttc",
 ]
 FONT_MONO_CANDIDATES = [
-    "/System/Library/Fonts/SFNSMono.ttf",
+    "/System/Library/Fonts/ヒラギノ角ゴシック W3.ttc",
+    "/Library/Fonts/Arial Unicode.ttf",
     "/System/Library/Fonts/Menlo.ttc",
-    "/Library/Fonts/Courier New.ttf",
+    "/System/Library/Fonts/Hiragino Sans GB.ttc",
 ]
 
 
@@ -101,9 +107,9 @@ def make_square_logo(out: Path, size: int = 1080):
     sub_font = _load_font(FONT_BOLD_CANDIDATES, size // 18)
     _draw_centered_text(draw, "Claude Code先生", sub_font, size // 2, size // 2 + size // 4, fill=TEXT)
 
-    # 装飾: 上下のドット
+    # 装飾: 下部にAIタグ
     accent_font = _load_font(FONT_MONO_CANDIDATES, size // 28)
-    _draw_centered_text(draw, "//// AI × ターミナル ////", accent_font,
+    _draw_centered_text(draw, "AI × ターミナル", accent_font,
                        size // 2, size // 2 + size // 3, fill=TEXT_FAINT)
 
     img.save(out, "PNG", optimize=True)

@@ -1,0 +1,139 @@
+{
+  "project": "Claude Code先生 株式会社（仮想）",
+  "started_at": "2026-05-01T08:00:00+09:00",
+  "tagline": "Build in Public — Claude Codeで何でも作る人が、SNS全自動運用システムと教育ブランドを1日で立ち上げる実況",
+  "status": "in_progress",
+  "events": [
+    {
+      "step": 1,
+      "ts": "2026-05-01T08:00:00+09:00",
+      "phase": "ブランド転換",
+      "title": "「AI×人事の自動化屋」から「Claude Code先生」へ完全切替を決定",
+      "summary": "29歳フリーランス、これまで人事自動化軸でX/note運用していたが、Claude Code講座（2026-05-08公開予定）の存在に合わせてブランドピボット。",
+      "x_post": "今日からブランド完全切替する。\n\n旧: AI×人事の自動化屋\n新: 🎓 Claude Code先生\n\n理由は単純。1年Claude Code触り倒した結果、僕の本業はもう「Claude Codeで何でも作る人」だった。\n\nこれからの構築過程、全部実況する。\n\n#BuildInPublic #ClaudeCode",
+      "artifact": null
+    },
+    {
+      "step": 2,
+      "ts": "2026-05-01T08:30:00+09:00",
+      "phase": "アーキテクチャ判断",
+      "title": "新規ディレクトリではなく既存orchestrator/を進化させる方針へ転換",
+      "summary": "Plan agentのレビューで「新規sns-auto-post/作成は過剰設計」と判明。既存68KBのmaster.pyを尊重し、orchestrator/を拡張する方向に。",
+      "x_post": "Claude Codeで設計するとき、既存資産との衝突は地雷。\n\n今日、Plan agentに「新ディレクトリ作るか既存を拡張するか」聞いたら一発で「既存進化が正解」と返ってきた。\n\n68KBの稼働中スクリプトを壊さずに4PF対応する。サブエージェント賢い。\n\n#ClaudeCode #BuildInPublic",
+      "artifact": "/Users/ryose/.claude/plans/x-facebook-iridescent-lollipop.md"
+    },
+    {
+      "step": 3,
+      "ts": "2026-05-01T09:00:00+09:00",
+      "phase": "プロンプト書き換え",
+      "title": "master.py PERSONAとXプロンプトをClaude Code軸に書き換え",
+      "summary": "PERSONAに「Claude Code先生」を明示、X生成プロンプトに「スラッシュコマンド/hooks/MCP/サブエージェントを必ず1つ含む」制約を追加。",
+      "x_post": "Claude Codeへの指示で大事なのは「何を必ず入れるか」を明示すること。\n\n今日、X投稿生成プロンプトに「/init, /compact, hooks, MCPのどれかを必ず含める」と書いたら、生成品質が一気に上がった。\n\n制約は創造性を殺さない。むしろ方向を与える。\n\n#プロンプトエンジニアリング #ClaudeCode",
+      "artifact": "/Users/ryose/.local/scripts/orchestrator/master.py"
+    },
+    {
+      "step": 4,
+      "ts": "2026-05-01T09:30:00+09:00",
+      "phase": "重複稼働解消",
+      "title": "重複していたx-auto-post.plistをunload",
+      "summary": "com.ryoseiworld.x-auto-post.plist と orchestrator-x-* plist が両方稼働しており、token取り合いリスクあり。前者を unload 済。",
+      "x_post": "Claude Code触る前に、まず既存launchctl状況を確認すべき。\n\n今日「x-auto-post.plist」と「orchestrator-x-morning.plist」が両方走ってて、X tokenを取り合ってた。\n\n`launchctl list | grep ryoseiworld` で全部見える。重複は即unload。\n\n#Mac #自動化 #ClaudeCode",
+      "artifact": "~/Library/LaunchAgents/"
+    },
+    {
+      "step": 5,
+      "ts": "2026-05-01T10:00:00+09:00",
+      "phase": "コンテンツ生成テスト",
+      "title": "新軸プロンプトでXストック21件を生成成功",
+      "summary": "Groq マルチモデル（kimi-k2/llama-3.3/qwen3）で Claude Code軸のXポスト21件を自動生成。`/init` `/compact` `claude --resume` 等のClaude Code固有要素が入った。",
+      "x_post": "Claude Codeの強みは「複数モデルを使い分ける」設計。\n\n僕のSNS自動投稿は:\n・kimi-k2: 初稿生成（高品質・長文）\n・llama-3.3: 辛口批評\n・qwen3: 改善版\n\n3モデルで同じ作業をリレーすると、1モデルでは出ない品質に達する。\n\n#ClaudeCode #Groq #AI",
+      "artifact": "/Users/ryose/.local/scripts/note/x_posts_w18.md"
+    },
+    {
+      "step": 6,
+      "ts": "2026-05-01T10:30:00+09:00",
+      "phase": "Meta API準備",
+      "title": "Meta API取得手順書16ステップとプライバシーポリシーHTML雛形を作成",
+      "summary": "Instagram Content Publishing API の App Review に必要な書類・スクリーンキャスト要件を文書化。プライバシーポリシーHTMLは GitHub Pages 公開用。",
+      "x_post": "Instagram API取得は5-21日かかる審査ゲーム。\n\n落としどころ:\n1. 必ずプライバシーポリシーURL\n2. App Reviewはテストアカウント不可、本番想定スクリーンキャスト必須\n3. Business Verificationは屋号付き開業届\n\n手順書16ステップ作った。\n\n#Meta #API #BuildInPublic",
+      "artifact": "/Users/ryose/.local/scripts/orchestrator/setup/meta_api_setup.md"
+    },
+    {
+      "step": 7,
+      "ts": "2026-05-01T11:00:00+09:00",
+      "phase": "公式サイト構築",
+      "title": "公式サイトとプライバシーポリシーをGitHub Pagesで公開",
+      "summary": "Tokyo Nightテーマでランディングページ + プライバシーポリシー + OGP メタタグ + favicon。GitHub Pages即時反映。",
+      "x_post": "Claude Codeで公式サイト作るとき、ローカルでHTML書く→git push→GitHub Pages有効化、で30分でデプロイできる。\n\n今日できたのコレ:\nhttps://ryoseiimai.github.io/claude-code-sensei/\n\nTokyo Nightテーマ、レスポンシブ、プライバシーポリシー込み。\n\n#ClaudeCode #個人開発",
+      "artifact": "https://ryoseiimai.github.io/claude-code-sensei/"
+    },
+    {
+      "step": 8,
+      "ts": "2026-05-01T11:30:00+09:00",
+      "phase": "ブランドアセット",
+      "title": "ロゴ・カバー画像6種をPillow + ヒラギノで生成",
+      "summary": "logo-square (1080x1080) / FBカバー (1640x624) / Xバナー (1500x500) / IGストーリー (1080x1920) / noteヘッダー (1280x680) / OGP (1200x630)。",
+      "x_post": "Pillow + ヒラギノ角ゴシック で6サイズのブランド画像を一気に生成。\n\n所要時間: 30秒\nコスト: 0円\n\nDALL-EやMidjourneyに頼らなくても、コードで作れるレベルのブランドアセットなら自分で作る。再現性が違う。\n\n#ClaudeCode #個人開発",
+      "artifact": "https://ryoseiimai.github.io/claude-code-sensei/assets/logo-square-1080.png"
+    },
+    {
+      "step": 9,
+      "ts": "2026-05-01T12:00:00+09:00",
+      "phase": "ハンドル戦略",
+      "title": "X username 15文字制限を発見、@claude_code_jp で確定",
+      "summary": "27ハンドル候補を X API で実空きチェック。最終的に「Claude」を含む14文字の `@claude_code_jp` に決定。全SNS統一ハンドル。",
+      "x_post": "X usernameに15文字制限があるの、やってみるまで知らなかった。\n\n「@claude_code_sensei」(18字) 不可\n「@claudecode_jp」(13字) 既に取得済み\n→ 「@claude_code_jp」(14字) で確定\n\n候補27個、X APIで一括空き確認した。Claude Code便利。\n\n#ClaudeCode",
+      "artifact": "/Users/ryose/.company/marketing/content-plan/brand-handle-strategy-20260501.md"
+    },
+    {
+      "step": 10,
+      "ts": "2026-05-01T12:30:00+09:00",
+      "phase": "組織化",
+      "title": "仮想カンパニー11部署 + サブエージェント8人体制を構築",
+      "summary": "CEO決定書 #001、部署横断ワークフロー、PMチケットCC-001-025、~/.claude/agents/ に8人のロール定義、Excel組織管理ブック。",
+      "x_post": "Claude Codeのサブエージェント、本当に「チーム」として動かせる。\n\n今日、Claude Code先生株式会社（仮想）として:\n・cc-sensei-secretary（秘書）\n・marketing-lead\n・engineer\n・creative\n・content-writer\n・researcher\n・pm\n・sales\n\n8人配備、~/.claude/agents/ で定義。\n\n#ClaudeCode #サブエージェント",
+      "artifact": "/Users/ryose/.company/ceo/decisions/2026-05-01-claude-code-sensei-org.md"
+    }
+  ],
+  "next_steps": [
+    {
+      "step": 11,
+      "phase": "ユーザー手動",
+      "title": "X リネーム + permissions修正",
+      "blocker": "developer.x.com で App permissions を Read and write に変更、Access Token regenerate"
+    },
+    {
+      "step": 12,
+      "phase": "ユーザー手動",
+      "title": "Instagram新規アカウント作成（@claude_code_jp）",
+      "blocker": "スマホアプリで新規登録"
+    },
+    {
+      "step": 13,
+      "phase": "ユーザー手動",
+      "title": "Facebookページ作成（Claude Code先生）",
+      "blocker": "https://www.facebook.com/pages/create/"
+    },
+    {
+      "step": 14,
+      "phase": "Claude Code代行",
+      "title": "X permissions修正後、ライブ実況スレッド一気投稿",
+      "blocker": null
+    },
+    {
+      "step": 15,
+      "phase": "Meta API取得後",
+      "title": "IG/FBへ自動クロスポスト開始",
+      "blocker": "App Review通過待ち（5-21日）"
+    }
+  ],
+  "summary": {
+    "files_created": 35,
+    "files_modified": 8,
+    "git_commits": 3,
+    "github_repo": "https://github.com/Ryoseiimai/claude-code-sensei",
+    "live_url": "https://ryoseiimai.github.io/claude-code-sensei/",
+    "subagents_created": 8,
+    "x_posts_stocked": 21
+  }
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>🔴 Live Build — Claude Code先生</title>
+<meta name="description" content="Claude Code先生 SNS全自動運用ハブの構築過程をリアルタイム実況中継。Build in Public。" />
+<meta property="og:title" content="🔴 Live Build — Claude Code先生" />
+<meta property="og:description" content="Claude Code で SNS全自動運用システムを1日で構築する実況" />
+<meta property="og:image" content="https://ryoseiimai.github.io/claude-code-sensei/assets/og-image-1200x630.png" />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  .live-badge { display:inline-block;background:#f7768e;color:#fff;padding:4px 12px;border-radius:20px;font-size:0.75em;font-weight:700;animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
+  .timeline { border-left:3px solid #7aa2f7;padding-left:24px;margin:30px 0; }
+  .timeline-item { margin:24px 0;padding:18px 22px;background:#24283b;border-radius:8px;position:relative; }
+  .timeline-item::before { content:"●";color:#7aa2f7;position:absolute;left:-36px;top:18px;font-size:1.4em;background:#1a1b26;border-radius:50%;width:20px;height:20px;text-align:center;line-height:20px; }
+  .timeline-item.done::before { color:#9ece6a; }
+  .timeline-item.next::before { color:#565f89;content:"○"; }
+  .timeline-meta { color:#565f89;font-size:0.85em;font-family:"SF Mono",Menlo,monospace; }
+  .timeline-title { font-size:1.05em;font-weight:700;color:#7aa2f7;margin:8px 0; }
+  .timeline-summary { color:#a9b1d6;font-size:0.95em;line-height:1.6; }
+  .x-post-preview { margin-top:14px;padding:14px;background:#1a1b26;border-left:3px solid #1da1f2;border-radius:6px;font-size:0.9em;color:#c0caf5;white-space:pre-line;line-height:1.6; }
+  .x-post-preview::before { content:"𝕏 ";color:#1da1f2;font-weight:700; }
+  .blocker { display:inline-block;background:#e0af68;color:#1a1b26;padding:2px 8px;border-radius:10px;font-size:0.75em;font-weight:700;margin-left:8px; }
+  .stat-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin:24px 0; }
+  .stat-box { background:#24283b;padding:16px;border-radius:8px;text-align:center; }
+  .stat-num { font-size:1.8em;font-weight:700;color:#7aa2f7; }
+  .stat-label { font-size:0.85em;color:#a9b1d6;margin-top:4px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="../" class="site-logo">🎓 Claude Code先生</a>
+    <nav class="site-nav">
+      <a href="../">ホーム</a>
+      <a href="./" style="color:#f7768e;font-weight:700">🔴 Live</a>
+      <a href="../#sns">SNS</a>
+      <a href="../privacy/">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom:30px">
+  <div class="container">
+    <div style="margin-bottom:14px"><span class="live-badge">🔴 LIVE</span></div>
+    <h1>Build in Public</h1>
+    <p class="lead">Claude Code先生 SNS全自動運用ハブの構築過程をリアルタイム実況。<br>「Claude Codeで何ができるか」を、僕自身の作業で証明します。</p>
+    <p style="margin-top:20px;color:#565f89;font-size:0.9em;font-family:'SF Mono',Menlo,monospace">PROJECT START: 2026-05-01 08:00 JST</p>
+  </div>
+</section>
+
+<section style="padding:40px 0;border-top:1px solid #2f334d">
+  <div class="container">
+    <div class="stat-grid" id="stats">
+      <div class="stat-box"><div class="stat-num" id="stat-files">35</div><div class="stat-label">作成ファイル数</div></div>
+      <div class="stat-box"><div class="stat-num" id="stat-commits">3</div><div class="stat-label">git commits</div></div>
+      <div class="stat-box"><div class="stat-num" id="stat-agents">8</div><div class="stat-label">サブエージェント</div></div>
+      <div class="stat-box"><div class="stat-num" id="stat-posts">21</div><div class="stat-label">X投稿ストック</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:40px 0;border-top:1px solid #2f334d">
+  <div class="container">
+    <h2 style="text-align:center;color:#7aa2f7;margin-bottom:8px">構築タイムライン</h2>
+    <p style="text-align:center;color:#a9b1d6;font-size:0.9em">各ステップにそのままX投稿できる原稿付き。permissions修正後に自動投稿予定。</p>
+    <div class="timeline" id="timeline">
+      <!-- JSで動的レンダリング -->
+    </div>
+  </div>
+</section>
+
+<section style="padding:40px 0;border-top:1px solid #2f334d">
+  <div class="container">
+    <h2 style="text-align:center;color:#7aa2f7">次のステップ</h2>
+    <div class="timeline" id="next-steps"></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    &copy; 2026 Claude Code先生 — <a href="../">ホーム</a> · <a href="https://github.com/Ryoseiimai/claude-code-sensei" target="_blank">GitHub</a> · <a href="https://x.com/claude_code_jp" target="_blank">X</a>
+    <p style="margin-top:12px;font-size:0.85em">このページは構築ログ JSON から自動生成。60秒ごとに自動再読込。</p>
+  </div>
+</footer>
+
+<script>
+  // 60秒ごとに自動更新
+  setTimeout(()=>location.reload(), 60000);
+
+  fetch('build_log.json?t=' + Date.now()).then(r=>r.json()).then(data => {
+    // 統計
+    const s = data.summary || {};
+    document.getElementById('stat-files').textContent = s.files_created || '—';
+    document.getElementById('stat-commits').textContent = s.git_commits || '—';
+    document.getElementById('stat-agents').textContent = s.subagents_created || '—';
+    document.getElementById('stat-posts').textContent = s.x_posts_stocked || '—';
+
+    // タイムライン（完了ステップ）
+    const tl = document.getElementById('timeline');
+    (data.events || []).forEach(ev => {
+      const item = document.createElement('div');
+      item.className = 'timeline-item done';
+      const ts = new Date(ev.ts);
+      item.innerHTML = `
+        <div class="timeline-meta">STEP ${ev.step} · ${ts.toLocaleString('ja-JP', {month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit'})} · ${ev.phase}</div>
+        <div class="timeline-title">${ev.title}</div>
+        <div class="timeline-summary">${ev.summary}</div>
+        ${ev.x_post ? `<div class="x-post-preview">${ev.x_post}</div>` : ''}
+      `;
+      tl.appendChild(item);
+    });
+
+    // 次のステップ
+    const ns = document.getElementById('next-steps');
+    (data.next_steps || []).forEach(step => {
+      const item = document.createElement('div');
+      item.className = 'timeline-item next';
+      item.innerHTML = `
+        <div class="timeline-meta">STEP ${step.step} · ${step.phase}</div>
+        <div class="timeline-title">${step.title}${step.blocker ? '<span class="blocker">BLOCKED</span>' : ''}</div>
+        ${step.blocker ? `<div class="timeline-summary" style="color:#e0af68">${step.blocker}</div>` : ''}
+      `;
+      ns.appendChild(item);
+    });
+  }).catch(err => {
+    document.getElementById('timeline').innerHTML = '<p style="color:#888">ログ読み込み中…</p>';
+  });
+</script>
+
+</body>
+</html>

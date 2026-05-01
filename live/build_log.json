@@ -111,6 +111,42 @@
       "summary": "法人Claude Code研修（半日30万/1日50万/月次30万）の提案書テンプレ、個別コンサル提案書テンプレ、CRM風パイプライン管理ファイルを作成。問い合わせから契約まで全部ファイルで追える状態に。",
       "x_post": "Claude Code 法人研修、価格決めた。\n\n半日（4時間）: 30万円\n1日（8時間）: 50万円\n継続支援（月2回 + Slack質問対応）: 30万/月\n\n提案書テンプレもCRMパイプラインも全部Claude Codeで30分で作った。\n\n受注したら全社員が `/init` を打てる状態にする。\n\n#ClaudeCode #法人研修 #BuildInPublic",
       "artifact": "/Users/ryose/.company/sales/proposals/"
+    },
+    {
+      "step": 13,
+      "ts": "2026-05-01T17:46:00+09:00",
+      "phase": "統合検証",
+      "title": "orchestrate.py --dry-run で 4PF（X/IG/FB/note）全フォーマット生成検証成功",
+      "summary": "Claude Code講座YAML（claude_code_course.yaml）から1トピック自動選定 → X(280字)/IG(2200字+ハッシュタグ)/FB(長文+note誘導)/note 各PFに最適化変換。published.json で重複防止。pickled_today_topic で1日1トピック割当。",
+      "x_post": "Claude Codeで「1コンテンツ→4プラットフォーム最適化」のorchestratorを書いた。\n\n講座YAMLからトピック1件抽出→\n・X: 280字以内のホットテイク\n・IG: 2200字+30タグ\n・FB: note誘導付き長文\n・note: そのまま記事\n\n全部1コマンドで生成可能。重複防止も自動。\n\n#ClaudeCode #自動化 #BuildInPublic",
+      "artifact": "/Users/ryose/.local/scripts/orchestrator/orchestrate.py"
+    },
+    {
+      "step": 14,
+      "ts": "2026-05-01T17:48:00+09:00",
+      "phase": "Publisher統一",
+      "title": "publishers/x.py + note.py を実装し、4PF統一インターフェース完成",
+      "summary": "publishers/{x,ig,fb,note}.py の4本が揃い、全てが publish(content, dry_run) という統一APIを提供。x.py は既存 x_auto_post.py に委譲、note.py は auto_publish.py（Playwright）に委譲。stub レイヤで既存資産を壊さず統合。",
+      "x_post": "今日のClaude Code設計の学び。\n\n既存スクリプト（X用 31KB、note用 Playwright）を壊さず統合するには、薄い委譲レイヤが正解。\n\npublishers/x.py は publish() で受けて x_auto_post.py を subprocess。\nnote.py も同様。\n\n全PFが同じ関数シグネチャになる気持ちよさ。\n\n#ClaudeCode #リファクタリング",
+      "artifact": "/Users/ryose/.local/scripts/orchestrator/publishers/"
+    },
+    {
+      "step": 15,
+      "ts": "2026-05-01T17:49:00+09:00",
+      "phase": "在庫化",
+      "title": "1週間分（6トピック）のSNSコンテンツストックを完全自動生成",
+      "summary": "stock_generator.py で講座YAMLの全6トピックを1日1トピック割当（2026-05-08〜05-13）、各トピックにつき X / IG / FB / note 用4種原稿 + コードカード画像 + 引用画像 + リール動画3.5秒×3スライドを生成。合計24原稿 + 12静止画 + 6本動画。permissions修正後すぐに連投可能。",
+      "x_post": "Claude Codeで「permissions待ち」の時間を在庫化に使った。\n\n講座YAMLから1日1トピック→\n・X/IG/FB/note 4種原稿\n・silicon+Pillow で画像\n・ffmpeg で 1080x1920 リール\n\n6日分（24原稿+12画像+6動画）を5分で生成。\n\n待ち時間は在庫を作る時間。\n\n#ClaudeCode #BuildInPublic",
+      "artifact": "/Users/ryose/.local/scripts/orchestrator/content/stock/stock_index.json"
+    },
+    {
+      "step": 16,
+      "ts": "2026-05-01T17:55:00+09:00",
+      "phase": "運用ガイド",
+      "title": "IG 60日 warm-up カレンダーと App Review スクリーンキャスト台本を策定",
+      "summary": "新規IGアカウントのシャドウバン回避戦略：Day 1-7 は1日1投稿手動、Day 8-21 は2-3日に1投稿、Day 22-45 は日次、Day 46-60 はリール週2、Day 61+ で API 自動化開始。並行して App Review 用5-8分動画台本（4 permissions × 各シーンのコマンド/画面/ナレーション、却下回避テンプレ込み）。",
+      "x_post": "Instagram新規アカウントは「60日 warm-up」しないと API 連投でシャドウバン。\n\nウチの戦略:\n・Day 1-7: 1日1投稿（手動）\n・Day 8-21: 2-3日に1\n・Day 22-45: 日次運用\n・Day 46-60: リール週2\n・Day 61+: API稼働\n\nApp Review 動画台本も書いた。\n\n#Instagram #ClaudeCode #BuildInPublic",
+      "artifact": "/Users/ryose/.local/scripts/orchestrator/setup/ig_warmup_calendar.md"
     }
   ],
   "next_steps": [
@@ -146,12 +182,20 @@
     }
   ],
   "summary": {
-    "files_created": 42,
-    "files_modified": 8,
+    "files_created": 48,
+    "files_modified": 10,
     "git_commits": 6,
     "github_repo": "https://github.com/Ryoseiimai/claude-code-sensei",
     "live_url": "https://ryoseiimai.github.io/claude-code-sensei/",
     "subagents_created": 8,
-    "x_posts_stocked": 21
+    "x_posts_stocked": 21,
+    "ig_captions_stocked": 6,
+    "fb_posts_stocked": 6,
+    "note_drafts_stocked": 6,
+    "code_card_images": 6,
+    "quote_card_images": 6,
+    "reel_videos": 6,
+    "stock_dir": "/Users/ryose/.local/scripts/orchestrator/content/stock/",
+    "ready_to_post_after_permissions_fix": true
   }
 }
